@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ぼん＆もくの本音ラジオ #28 webtestpilot回 / 2026.5.29 OA</title>
+<meta name="description" content="就活のリアル、深夜2時の本音で。28卒ぼん＆27卒もくが配信する本音ラジオ。今夜のテーマはWebテ対策。番組で使ってるアプリも紹介。">
+<meta property="og:title" content="ぼん＆もくの本音ラジオ #28 webtestpilot回">
+<meta property="og:description" content="就活のリアル、深夜2時の本音で。番組で使ってるアプリ ¥600(税込)">
+<meta property="og:image" content="./assets/ASSET_OG_v4.png">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://cdn.tailwindcss.com">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Caveat:wght@500;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1B2A4E;
+    --navy-2:#243866;
+    --cream:#F5EFE6;
+    --cream-2:#EFE5D4;
+    --pink:#E8A5A5;
+    --pink-2:#F2C5C5;
+    --red:#E63946;
+    --tape:#8B5A3C;
+    --tape-2:#6B4226;
+    --paper:#FBF7EE;
+  }
+  html,body{background:var(--cream);}
+  body{
+    font-family:'Noto Sans JP', system-ui, -apple-system, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+    color:var(--navy);
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(232,165,165,.18), transparent 60%),
+      radial-gradient(900px 500px at -10% 20%, rgba(27,42,78,.06), transparent 60%),
+      var(--cream);
+  }
+  .font-serif-show{font-family:'Playfair Display', serif; letter-spacing:.01em;}
+  .font-mono-show{font-family:'DM Mono', ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing:.04em;}
+  .font-handwrite{font-family:'Caveat', cursive;}
+
+  /* Scroll progress */
+  .scroll-progress{position:fixed; top:0; left:0; height:1.5px; background:var(--navy); width:0; z-index:60;}
+
+  /* ON AIR pulse */
+  .onair-dot{
+    width:.7rem; height:.7rem; border-radius:9999px; background:var(--red);
+    box-shadow:0 0 0 0 rgba(230,57,70,.6);
+    animation:pulse 1.5s ease-out infinite;
+  }
+  .onair-dot.lg{ width:1.05rem; height:1.05rem; }
+  @keyframes pulse{
+    0%{ box-shadow:0 0 0 0 rgba(230,57,70,.55); transform:scale(1); }
+    70%{ box-shadow:0 0 0 18px rgba(230,57,70,0); transform:scale(1.08); }
+    100%{ box-shadow:0 0 0 0 rgba(230,57,70,0); transform:scale(1); }
+  }
+
+  /* Hero stagger */
+  .hero-char{ display:inline-block; opacity:0; transform:translateY(14px); animation:heroIn .6s cubic-bezier(.2,.7,.2,1) forwards; }
+  @keyframes heroIn{ to{ opacity:1; transform:translateY(0); } }
+
+  /* Sound wave drift */
+  .wave-drift{ animation:wavedrift 9s linear infinite; }
+  @keyframes wavedrift{
+    0%{ transform:translateX(0); }
+    100%{ transform:translateX(-60px); }
+  }
+
+  /* Conversation bubble */
+  .bubble{
+    position:relative;
+    background:#fff;
+    border:1.5px solid var(--navy);
+    border-radius:18px;
+    padding:14px 16px;
+    box-shadow:3px 3px 0 rgba(27,42,78,.12);
+  }
+  .bubble.bon{ border-color:var(--navy); background:#fff; }
+  .bubble.moku{ border-color:var(--pink); background:#FFF7F4; }
+  .bubble.bon::after, .bubble.moku::after{
+    content:""; position:absolute; bottom:-9px; width:14px; height:14px; background:inherit;
+    border-right:1.5px solid; border-bottom:1.5px solid; transform:rotate(45deg);
+  }
+  .bubble.bon::after{ left:28px; border-color:var(--navy); background:#fff; }
+  .bubble.moku::after{ right:28px; border-color:var(--pink); background:#FFF7F4; }
+
+  /* Fade in on scroll */
+  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.in{ opacity:1; transform:none; }
+
+  /* Cassette tape */
+  .cassette{
+    background:linear-gradient(180deg, var(--tape) 0%, var(--tape-2) 100%);
+    color:#FBF7EE;
+    border-radius:8px;
+    padding:14px 18px 16px;
+    position:relative;
+    box-shadow:4px 4px 0 rgba(27,42,78,.18), inset 0 1px 0 rgba(255,255,255,.18);
+    transition:transform .3s cubic-bezier(.2,.7,.2,1);
+  }
+  .cassette:hover{ transform:rotate(-1.5deg); }
+  .cassette::before{
+    content:""; position:absolute; left:14px; right:14px; top:6px; height:2px; background:rgba(255,255,255,.25); border-radius:2px;
+  }
+  .cassette .reels{ display:flex; gap:30px; justify-content:center; margin-top:6px; }
+  .cassette .reel{ width:34px; height:34px; border-radius:9999px; background:radial-gradient(circle, #3a2516 0%, #1a0f08 70%); border:3px solid #d9b48a; position:relative; }
+  .cassette .reel::after{ content:""; position:absolute; inset:8px; border-radius:9999px; border:2px dashed #d9b48a; opacity:.6; }
+  .cassette .label{
+    background:#FBF7EE; color:var(--navy); border-radius:4px; padding:6px 10px; margin-top:10px; text-align:center;
+    font-family:'Caveat', cursive; font-size:1.6rem; line-height:1; border:1px solid #d9b48a;
+  }
+
+  /* Phone frame */
+  .phone-frame{
+    background:#0f1422;
+    border-radius:34px;
+    padding:10px 8px 12px;
+    box-shadow:0 30px 60px -20px rgba(27,42,78,.45), inset 0 0 0 1px rgba(255,255,255,.06);
+    position:relative;
+  }
+  .phone-frame::before{
+    content:""; position:absolute; top:10px; left:50%; transform:translateX(-50%);
+    width:80px; height:18px; background:#0f1422; border-radius:0 0 14px 14px; z-index:2;
+  }
+  .phone-frame img{ display:block; width:100%; border-radius:24px; }
+
+  /* "Peek" effect — show is sneaking a look */
+  .peek-tag{
+    background:#FBF7EE; color:var(--navy); border:1.5px dashed var(--navy);
+    border-radius:9999px; padding:4px 12px; font-family:'Caveat', cursive; font-size:1.15rem; line-height:1;
+    transform:rotate(-3deg);
+    box-shadow:2px 2px 0 rgba(27,42,78,.15);
+  }
+
+  /* Vinyl record */
+  .vinyl{ animation:spin 8s linear infinite; }
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+
+  /* Postcard */
+  .postcard{
+    background:#FBF7EE;
+    border:1px solid rgba(27,42,78,.18);
+    border-radius:6px;
+    padding:16px;
+    position:relative;
+    box-shadow:3px 3px 0 rgba(27,42,78,.08);
+  }
+  .postcard::before{
+    content:""; position:absolute; right:14px; top:14px; width:42px; height:52px;
+    background:repeating-linear-gradient(45deg, var(--pink) 0 6px, #FBF7EE 6px 12px);
+    border:1px solid rgba(27,42,78,.25);
+  }
+
+  /* Marquee for "番組表" vertical text on wide */
+  .vert-rl{ writing-mode:vertical-rl; letter-spacing:.4em; }
+
+  /* CTA */
+  .cta-btn{
+    background:var(--navy); color:#FBF7EE;
+    border:2px solid var(--navy);
+    border-radius:9999px;
+    padding:16px 28px;
+    font-weight:700;
+    box-shadow:4px 4px 0 var(--pink);
+    transition:transform .15s ease, box-shadow .15s ease;
+    display:inline-flex; align-items:center; gap:.6rem;
+  }
+  .cta-btn:hover{ transform:translate(-2px,-2px); box-shadow:6px 6px 0 var(--pink); }
+  .cta-btn:active{ transform:translate(2px,2px); box-shadow:2px 2px 0 var(--pink); }
+
+  /* Header buttons */
+  .hdr-btn{ display:inline-flex; align-items:center; justify-content:center; height:36px; padding:0 14px; border-radius:9999px; font-size:.85rem; font-weight:600; line-height:1; }
+  @media (min-width:768px){ .hdr-btn{ height:40px; padding:0 16px; font-size:.9rem; } }
+
+  /* Hero bg blur layer */
+  .hero-bg{
+    position:absolute; inset:0; background-image:url('./assets/ASSET_HERO_BG.png'); background-size:cover; background-position:center;
+    filter:blur(20px) saturate(110%); transform:scale(1.1);
+  }
+  .hero-overlay{
+    position:absolute; inset:0; background:linear-gradient(180deg, rgba(27,42,78,.55) 0%, rgba(27,42,78,.35) 50%, rgba(245,239,230,.85) 100%);
+  }
+
+  /* Section divider colors */
+  .wave-fill-navy path{ fill:var(--navy); }
+  .wave-fill-pink path{ fill:var(--pink); }
+
+  /* EP badge */
+  .ep-badge{
+    display:inline-flex; align-items:center; gap:.5rem;
+    font-family:'DM Mono', monospace; font-size:.72rem;
+    background:#FBF7EE; border:1px solid var(--navy); color:var(--navy);
+    padding:5px 10px; border-radius:4px; letter-spacing:.12em;
+  }
+  .ep-badge .sq{ width:.45rem; height:.45rem; background:var(--navy); display:inline-block; }
+
+  /* Show title hand-mix */
+  .show-title{
+    font-family:'Playfair Display', serif;
+    font-weight:900;
+    line-height:1.05;
+  }
+  .show-title .hand{
+    font-family:'Caveat', cursive;
+    font-weight:700;
+    color:var(--pink);
+    font-style:normal;
+  }
+
+  /* tickers */
+  .ticker{
+    overflow:hidden; white-space:nowrap; border-top:1px solid rgba(27,42,78,.2); border-bottom:1px solid rgba(27,42,78,.2);
+    background:#FBF7EE;
+  }
+  .ticker-track{ display:inline-block; animation:ticker 38s linear infinite; padding-left:100%; }
+  @keyframes ticker{ to{ transform:translateX(-100%); } }
+
+  /* Dial */
+  .dial-tick{ width:1.5px; height:14px; background:var(--navy); display:inline-block; margin:0 4px; opacity:.4; }
+  .dial-tick.big{ height:22px; opacity:.85; }
+
+  /* Frequency knob */
+  .knob{
+    width:46px; height:46px; border-radius:9999px;
+    background:radial-gradient(circle at 30% 30%, #fff 0%, #cdb8a3 60%, #8a715a 100%);
+    border:2px solid var(--navy);
+    box-shadow:inset -2px -2px 4px rgba(0,0,0,.25);
+    position:relative;
+  }
+  .knob::after{ content:""; position:absolute; top:6px; left:50%; transform:translateX(-50%); width:2px; height:14px; background:var(--navy); border-radius:1px; }
+
+  /* Note overlap utility */
+  .overlap-icons > * + *{ margin-left:-26px; }
+  @media (min-width:768px){ .overlap-icons > * + *{ margin-left:-40px; } }
+
+  /* Letterbox hero corners */
+  .corner-tag{
+    font-family:'DM Mono', monospace; font-size:.7rem; letter-spacing:.15em;
+    color:#FBF7EE; background:rgba(27,42,78,.5); padding:5px 10px; border:1px solid rgba(255,255,255,.3); border-radius:4px;
+    backdrop-filter:blur(4px);
+  }
+
+  /* Hero CTA arrow */
+  .arr{ display:inline-block; transition:transform .15s ease; }
+  .cta-btn:hover .arr{ transform:translateX(4px); }
+
+  /* Smooth */
+  html{ scroll-behavior:smooth; }
+
+  /* Mobile spacing */
+  section{ position:relative; }
+
+  /* Vertical "番組表" decoration */
+  .vert-deco{ display:none; }
+  @media (min-width:1024px){
+    .vert-deco{ display:block; position:absolute; top:50%; transform:translateY(-50%); font-family:'DM Mono', monospace; font-size:.7rem; letter-spacing:.5em; opacity:.5; }
+    .vert-deco.l{ left:14px; writing-mode:vertical-rl; }
+    .vert-deco.r{ right:14px; writing-mode:vertical-rl; }
+  }
+
+  /* Vinyl SVG layout */
+  .vinyl-wrap{ position:relative; width:200px; height:200px; }
+  @media (min-width:768px){ .vinyl-wrap{ width:240px; height:240px; } }
+
+  /* Faux radio dial gradient bar */
+  .dial-bar{
+    height:6px; background:linear-gradient(90deg, var(--navy) 0%, var(--pink) 50%, var(--navy) 100%);
+    border-radius:9999px;
+  }
+
+  .grain{
+    background-image:radial-gradient(rgba(27,42,78,.06) 1px, transparent 1px);
+    background-size:3px 3px;
+  }
+
+  /* FV ON AIR card */
+  .onair-card{
+    display:inline-flex; align-items:center; gap:.6rem;
+    background:rgba(255,255,255,.92); border:1.5px solid var(--navy);
+    padding:8px 14px; border-radius:9999px;
+    font-family:'DM Mono', monospace; font-size:.78rem; letter-spacing:.14em;
+    box-shadow:3px 3px 0 var(--pink);
+  }
+
+  /* Bon/Moku icon stage */
+  .icon-stage img{
+    width:160px; height:160px; border-radius:9999px;
+    border:4px solid #FBF7EE;
+    box-shadow:0 18px 40px -10px rgba(27,42,78,.5), 0 0 0 1px rgba(27,42,78,.2);
+    background:#FBF7EE;
+  }
+  @media (min-width:480px){ .icon-stage img{ width:180px; height:180px; } }
+  @media (min-width:768px){ .icon-stage img{ width:220px; height:220px; } }
+  @media (min-width:1024px){ .icon-stage img{ width:240px; height:240px; } }
+  @media (min-width:1200px){ .icon-stage img{ width:260px; height:260px; } }
+
+  .icon-name{
+    display:inline-block; margin-top:8px; font-family:'DM Mono', monospace; font-size:.72rem; letter-spacing:.14em;
+    color:#FBF7EE; background:rgba(27,42,78,.7); padding:3px 8px; border-radius:9999px;
+  }
+
+  /* small helpers */
+  .divider-line{ height:1px; background:rgba(27,42,78,.18); }
+  .underline-hand{ background-image:linear-gradient(transparent 70%, var(--pink-2) 70%); }
+
+  /* Section 4 "note" paper */
+  .note-paper{
+    background:
+      linear-gradient(#FBF7EE, #FBF7EE),
+      repeating-linear-gradient(180deg, transparent 0 27px, rgba(27,42,78,.1) 27px 28px);
+    background-blend-mode:multiply;
+    border:1px solid rgba(27,42,78,.18);
+    border-radius:8px;
+    padding:18px;
+    position:relative;
+  }
+  .note-paper::before{
+    content:""; position:absolute; top:14px; left:18px; right:18px; bottom:14px;
+    background:repeating-linear-gradient(180deg, transparent 0 27px, rgba(27,42,78,.10) 27px 28px);
+    pointer-events:none; border-radius:6px;
+  }
+
+  /* Corner mark */
+  .corner-pin{
+    position:absolute; width:18px; height:18px; background:var(--pink); border-radius:9999px; box-shadow:inset 0 -2px 2px rgba(0,0,0,.2);
+  }
+</style>
+</head>
+<body class="overflow-x-hidden">
+
+<!-- Scroll progress -->
+<div id="progress" class="scroll-progress"></div>
+
+<!-- Header -->
+<header class="sticky top-0 z-40 bg-[color:var(--cream)]/85 backdrop-blur border-b border-[color:var(--navy)]/15">
+  <div class="max-w-[1200px] mx-auto px-4 md:px-6 h-14 md:h-16 flex items-center justify-between">
+    <a href="#fv" class="flex items-center gap-2">
+      <span class="onair-dot" aria-hidden="true"></span>
+      <span class="font-mono-show text-[11px] md:text-[13px] tracking-[.18em] uppercase">honne radio</span>
+      <span class="hidden md:inline font-serif-show text-[15px] ml-1">— #28 webtestpilot</span>
+    </a>
+    <nav class="flex items-center gap-2">
+      <a href="https://webtestpilot.carynstegia.com/customers/sign_in" class="hdr-btn border border-[color:var(--navy)] text-[color:var(--navy)] bg-transparent hover:bg-[color:var(--navy)]/5">ログイン</a>
+      <a href="https://webtestpilot.carynstegia.com/customers/sign_up" class="hdr-btn bg-[color:var(--navy)] text-[color:var(--cream)] hover:opacity-90">新規登録</a>
+    </nav>
+  </div>
+</header>
+
+<!-- 1. ON AIR FV -->
+<section id="fv" class="relative overflow-hidden">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+
+  <!-- vertical deco -->
+  <div class="vert-deco l text-white/80">PROGRAM // HONNE RADIO // 02:00 AM</div>
+  <div class="vert-deco r text-white/80">EP.28 / WEBTESTPILOT / 2026.05.29 OA</div>
+
+  <div class="relative max-w-[1200px] mx-auto px-4 md:px-8 pt-8 md:pt-12 pb-16 md:pb-20">
+
+    <!-- Top row: ON AIR + corner tags -->
+    <div class="flex items-center justify-between gap-3 mb-6 md:mb-8">
+      <div class="onair-card">
+        <span class="onair-dot lg" aria-hidden="true"></span>
+        <span>ON AIR</span>
+        <span class="text-[color:var(--navy)]/60">·</span>
+        <span>#28 / 2026.05.29</span>
+      </div>
+      <div class="hidden md:flex items-center gap-2">
+        <span class="corner-tag">FM 87.6 // HONNE</span>
+        <span class="corner-tag">LIVE FROM 京都</span>
+      </div>
+      <div class="md:hidden">
+        <span class="corner-tag">FM 87.6</span>
+      </div>
+    </div>
+
+    <!-- Show title -->
+    <div class="text-center text-[color:var(--cream)]">
+      <p class="font-mono-show text-[10px] md:text-[12px] tracking-[.3em] uppercase opacity-90 mb-3">A late-night talk show by</p>
+      <h1 class="show-title text-[34px] sm:text-[44px] md:text-[64px] lg:text-[76px] xl:text-[88px]" aria-label="ぼん＆もくの本音ラジオ">
+        <span id="hero-title-1" class="block">ぼん<span class="hand">&amp;</span>もくの</span>
+        <span id="hero-title-2" class="block"><span class="hand text-[0.92em]">本音</span>ラジオ</span>
+      </h1>
+      <p class="mt-4 md:mt-6 font-handwrite text-[20px] md:text-[28px] text-[color:var(--pink-2)]">就活のリアル、深夜2時の本音で。</p>
+    </div>
+
+    <!-- bon / moku icon stage -->
+    <div class="icon-stage mt-8 md:mt-10 flex items-end justify-center overlap-icons relative">
+      <div class="flex flex-col items-center reveal">
+        <img src="./icons/bon-circle.png" alt="ぼん (28卒)" loading="eager">
+        <span class="icon-name">ぼん / 28卒</span>
+      </div>
+      <div class="flex flex-col items-center reveal" style="transition-delay:.15s">
+        <img src="./icons/moku-circle.png" alt="もく (27卒)" loading="eager">
+        <span class="icon-name">もく / 27卒</span>
+      </div>
+
+      <!-- wave decoration above -->
+      <svg class="absolute -top-6 md:-top-8 left-1/2 -translate-x-1/2 w-[80%] max-w-[520px] opacity-70" viewBox="0 0 520 60" fill="none" aria-hidden="true">
+        <path d="M0 30 Q26 6 52 30 T104 30 T156 30 T208 30 T260 30 T312 30 T364 30 T416 30 T468 30 T520 30" stroke="#F2C5C5" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M0 30 Q26 50 52 30 T104 30 T156 30 T208 30 T260 30 T312 30 T364 30 T416 30 T468 30 T520 30" stroke="#FBF7EE" stroke-width="1.2" fill="none" stroke-linecap="round" opacity=".6"/>
+      </svg>
+    </div>
+
+    <!-- Subhead card -->
+    <div class="mt-10 md:mt-14 max-w-[820px] mx-auto bg-[color:var(--cream)]/95 border border-[color:var(--navy)]/30 rounded-2xl p-5 md:p-7 shadow-[5px_5px_0_rgba(27,42,78,.18)]">
+      <div class="flex items-center justify-between mb-3">
+        <span class="ep-badge"><span class="sq"></span>EP.28 / TONIGHT</span>
+        <span class="font-mono-show text-[10px] md:text-[11px] text-[color:var(--navy)]/70">RUN TIME · 試し聴き 約3分</span>
+      </div>
+      <p class="font-serif-show text-[22px] md:text-[30px] leading-snug">
+        今夜のテーマ：<span class="underline-hand">Webテ、みんなどうしてる？</span>
+      </p>
+      <p class="mt-3 text-[14px] md:text-[15px] leading-relaxed text-[color:var(--navy)]/85">
+        参考書しんどい、電車で開く気にならん。— そういう本音から始まる回。<br>
+        後半で、番組で実際に使ってるアプリの話もします。
+      </p>
+
+      <!-- Dial bar -->
+      <div class="mt-5 flex items-center gap-3">
+        <span class="font-mono-show text-[10px] text-[color:var(--navy)]/70">87.6</span>
+        <div class="flex-1 dial-bar"></div>
+        <span class="font-mono-show text-[10px] text-[color:var(--navy)]/70">108.0</span>
+      </div>
+
+      <!-- CTA -->
+      <div class="mt-6 flex flex-col md:flex-row gap-3 md:items-center md:justify-between">
+        <a href="#guds" class="cta-btn justify-center md:justify-start">
+          <span aria-hidden="true">📻</span>
+          <span>番組を聴く（プロフィールへ）</span>
+          <span class="arr">→</span>
+        </a>
+        <p class="text-[11px] md:text-[12px] font-mono-show text-[color:var(--navy)]/65 text-center md:text-right">DMもプロフィールから／ Late-night programming</p>
+      </div>
+    </div>
+
+    <!-- Bottom dial ticks -->
+    <div class="mt-8 md:mt-10 flex items-end justify-center">
+      <span class="dial-tick"></span><span class="dial-tick"></span><span class="dial-tick big"></span>
+      <span class="dial-tick"></span><span class="dial-tick"></span><span class="dial-tick big"></span>
+      <span class="dial-tick"></span><span class="dial-tick"></span><span class="dial-tick big"></span>
+      <span class="dial-tick"></span><span class="dial-tick"></span><span class="dial-tick big"></span>
+      <span class="dial-tick"></span><span class="dial-tick"></span>
+    </div>
+
+  </div>
+
+  <!-- Wave divider out -->
+  <div class="relative -mt-1">
+    <svg class="block w-full h-[40px] md:h-[60px] wave-drift wave-fill-navy" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,40 Q120,10 240,30 T480,30 T720,30 T960,30 T1200,30 T1440,30 L1440,60 L0,60 Z" opacity=".95"/>
+    </svg>
+  </div>
+</section>
+
+<!-- Ticker -->
+<div class="ticker text-[12px] md:text-[13px] font-mono-show text-[color:var(--navy)]/80 py-2.5">
+  <div class="ticker-track">
+    📻 HONNE RADIO — EP.28 webtestpilot回 ✦ ON AIR 2026.05.29 02:00 ✦ ぼん(28卒) × もく(27卒) ✦ 今夜のテーマ：Webテ、みんなどうしてる？ ✦ お便り受付中 / プロフィールのDMへ ✦ 次回 EP.29 はリスナーQ&amp;A回 ✦
+  </div>
+</div>
+
+<!-- 2. EP.28 OPENING -->
+<section id="opening" class="relative bg-[color:var(--navy)] text-[color:var(--cream)] py-14 md:py-20">
+  <div class="vert-deco l text-[color:var(--cream)]/50">EP.28 / OPENING / 00:00 — 02:14</div>
+  <div class="vert-deco r text-[color:var(--cream)]/50">SCRIPT A / TWO HOSTS</div>
+
+  <div class="max-w-[960px] mx-auto px-4 md:px-8">
+
+    <div class="flex items-center justify-between mb-6">
+      <span class="ep-badge bg-transparent text-[color:var(--cream)] border-[color:var(--cream)]"><span class="sq" style="background:var(--cream)"></span>EP.28 / OPENING</span>
+      <span class="font-mono-show text-[11px] text-[color:var(--cream)]/70">CUE — 00:00</span>
+    </div>
+
+    <h2 class="font-serif-show text-[26px] md:text-[40px] leading-tight mb-2">リスナーから来た悩み。</h2>
+    <p class="font-handwrite text-[20px] md:text-[26px] text-[color:var(--pink-2)] mb-8 md:mb-10">「Webテ、何で対策してます？」</p>
+
+    <div class="space-y-5 md:space-y-7">
+      <!-- bon -->
+      <div class="reveal flex items-end gap-3 md:gap-4">
+        <img src="./icons/bon-circle.png" alt="ぼん" class="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-[color:var(--cream)] bg-[color:var(--cream)] shrink-0">
+        <div class="bubble bon max-w-[78%] md:max-w-[70%]">
+          <p class="font-mono-show text-[10px] text-[color:var(--navy)]/60 mb-1">ぼん · 28卒</p>
+          <p class="text-[15px] md:text-[17px] leading-relaxed">もくさん、今日リスナーから来てた質問なんやけど。</p>
+        </div>
+      </div>
+      <!-- moku -->
+      <div class="reveal flex items-end gap-3 md:gap-4 flex-row-reverse">
+        <img src="./icons/moku-circle.png" alt="もく" class="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-[color:var(--pink)] bg-[color:var(--cream)] shrink-0">
+        <div class="bubble moku max-w-[78%] md:max-w-[70%]">
+          <p class="font-mono-show text-[10px] text-[color:var(--navy)]/60 mb-1 text-right">もく · 27卒</p>
+          <p class="text-[15px] md:text-[17px] leading-relaxed">お、なになに。</p>
+        </div>
+      </div>
+      <!-- bon -->
+      <div class="reveal flex items-end gap-3 md:gap-4">
+        <img src="./icons/bon-circle.png" alt="ぼん" class="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-[color:var(--cream)] bg-[color:var(--cream)] shrink-0">
+        <div class="bubble bon max-w-[78%] md:max-w-[70%]">
+          <p class="font-mono-show text-[10px] text-[color:var(--navy)]/60 mb-1">ぼん</p>
+          <p class="text-[15px] md:text-[17px] leading-relaxed">「Webテ何で対策してます？」って。</p>
+        </div>
+      </div>
+      <!-- moku -->
+      <div class="reveal flex items-end gap-3 md:gap-4 flex-row-reverse">
+        <img src="./icons/moku-circle.png" alt="もく" class="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-[color:var(--pink)] bg-[color:var(--cream)] shrink-0">
+        <div class="bubble moku max-w-[78%] md:max-w-[70%]">
+          <p class="font-mono-show text-[10px] text-[color:var(--navy)]/60 mb-1 text-right">もく</p>
+          <p class="text-[15px] md:text-[17px] leading-relaxed">あー、それな。正直、参考書しんどない？電車で開く気にならんやろ。</p>
+        </div>
+      </div>
+      <!-- bon -->
+      <div class="reveal flex items-end gap-3 md:gap-4">
+        <img src="./icons/bon-circle.png" alt="ぼん" class="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-[color:var(--cream)] bg-[color:var(--cream)] shrink-0">
+        <div class="bubble bon max-w-[78%] md:max-w-[70%]">
+          <p class="font-mono-show text-[10px] text-[color:var(--navy)]/60 mb-1">ぼん</p>
+          <p class="text-[15px] md:text-[17px] leading-relaxed">わかる。俺ら最近スマホでサクッと派やんか。</p>
+        </div>
+      </div>
+      <!-- moku -->
+      <div class="reveal flex items-end gap-3 md:gap-4 flex-row-reverse">
+        <img src="./icons/moku-circle.png" alt="もく" class="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-[color:var(--pink)] bg-[color:var(--cream)] shrink-0">
+        <div class="bubble moku max-w-[78%] md:max-w-[70%]">
+          <p class="font-mono-show text-[10px] text-[color:var(--navy)]/60 mb-1 text-right">もく</p>
+          <p class="text-[15px] md:text-[17px] leading-relaxed">うん、あれ紹介していい？番組で普通に使ってるやつ。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-10 flex items-center justify-center gap-3 text-[color:var(--cream)]/70 font-mono-show text-[11px]">
+      <span>—</span><span>CUE TO B-SIDE</span><span>—</span>
+    </div>
+  </div>
+
+  <!-- divider out -->
+  <svg class="block w-full h-[40px] md:h-[60px] wave-drift" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,30 Q120,55 240,30 T480,30 T720,30 T960,30 T1200,30 T1440,30 L1440,60 L0,60 Z" fill="#F5EFE6"/>
+  </svg>
+</section>
+
+<!-- 3. EP.28 今夜のオススメ「番組で使ってるアプリ」 -->
+<section id="osusume" class="relative py-14 md:py-20">
+  <div class="vert-deco l">SHOW &amp; TELL / TONIGHT'S PICK</div>
+  <div class="max-w-[1200px] mx-auto px-4 md:px-8">
+
+    <div class="flex items-center justify-between mb-5">
+      <span class="ep-badge"><span class="sq"></span>EP.28 / SEGMENT B</span>
+      <span class="inline-flex items-center gap-2 font-mono-show text-[11px] text-[color:var(--navy)]/70">
+        <span class="onair-dot" aria-hidden="true"></span> NOW PLAYING — 02:14
+      </span>
+    </div>
+
+    <div class="grid md:grid-cols-12 gap-8 md:gap-10 items-center">
+      <!-- Copy -->
+      <div class="md:col-span-7 lg:col-span-7">
+        <p class="font-handwrite text-[22px] md:text-[28px] text-[color:var(--pink)]">今夜のオススメ</p>
+        <h2 class="font-serif-show text-[28px] md:text-[42px] lg:text-[48px] leading-tight mt-1">
+          番組で使ってる、<br>
+          <span class="underline-hand">そのアプリの話。</span>
+        </h2>
+
+        <p class="mt-5 text-[15px] md:text-[16px] leading-relaxed text-[color:var(--navy)]/85">
+          紙の参考書、たぶんもう開かんくない？— っていう本音から、ぼん&amp;もくが日常で使ってるのが <strong class="font-bold">Webtestpilot</strong>。<br class="hidden md:block">
+          スマホでSPI(言語/非言語)と玉手箱を、5,000問以上。電車の5分で進む。
+        </p>
+
+        <ul class="mt-5 space-y-2 text-[14px] md:text-[15px]">
+          <li class="flex items-start gap-2"><span class="text-[color:var(--pink)] font-bold">◎</span>SPI(言語/非言語) と 玉手箱(四則逆算/表の空欄推測/図表の読み取り/趣旨判定)</li>
+          <li class="flex items-start gap-2"><span class="text-[color:var(--pink)] font-bold">◎</span>5,000問以上 / 1問ずつ進められる</li>
+          <li class="flex items-start gap-2"><span class="text-[color:var(--pink)] font-bold">◎</span>解説が毎問つく — 間違えた時に置いてかれへん</li>
+        </ul>
+
+        <p class="mt-5 text-[13px] md:text-[14px] text-[color:var(--navy)]/70 font-handwrite text-[18px]">
+          ※ぼん&amp;もくが薦めてるアプリ。作ってるのは別のチーム（footer参照）。
+        </p>
+      </div>
+
+      <!-- Phone peek -->
+      <div class="md:col-span-5 lg:col-span-5">
+        <div class="relative max-w-[280px] md:max-w-[320px] mx-auto">
+          <div class="absolute -top-5 -left-3 z-10 peek-tag">ぼんのスマホ画面、チラ見せ</div>
+          <div class="phone-frame">
+            <img src="./assets/ASSET_PHONE_SCREEN_HOME.png" alt="Webtestpilot ホーム画面（SPI/玉手箱メニュー）">
+          </div>
+          <!-- decorative onair dot small -->
+          <div class="absolute -bottom-3 right-3 inline-flex items-center gap-2 bg-[color:var(--cream)] border border-[color:var(--navy)] rounded-full px-3 py-1 font-mono-show text-[10px]">
+            <span class="onair-dot" aria-hidden="true"></span> SHOWING NOW
+          </div>
+          <!-- corner pins -->
+          <span class="corner-pin" style="top:-8px; right:-8px;"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- wave divider -->
+  <div class="mt-12">
+    <svg class="block w-full h-[40px] md:h-[60px] wave-drift wave-fill-pink" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,30 Q120,5 240,30 T480,30 T720,30 T960,30 T1200,30 T1440,30 L1440,60 L0,60 Z" opacity=".9"/>
+    </svg>
+  </div>
+</section>
+
+<!-- 4. ノートを覗き見 -->
+<section id="note" class="relative bg-[color:var(--pink)]/15 py-14 md:py-20">
+  <div class="vert-deco l">SHOW NOTES / EP.28</div>
+  <div class="vert-deco r">PEEK INTO THE STUDIO</div>
+
+  <div class="max-w-[1200px] mx-auto px-4 md:px-8">
+
+    <div class="flex items-center justify-between mb-5">
+      <span class="ep-badge"><span class="sq"></span>EP.28 / SHOW NOTES</span>
+      <span class="font-mono-show text-[11px] text-[color:var(--navy)]/70">— STUDIO PEEK —</span>
+    </div>
+
+    <h2 class="font-serif-show text-[28px] md:text-[42px] leading-tight">番組ノートを、ちょっと覗き見。</h2>
+    <p class="mt-2 text-[14px] md:text-[15px] text-[color:var(--navy)]/80">スマホでどんな感じで進めてるか、画面そのまま。</p>
+
+    <!-- 3 corner icons (アイコン化) -->
+    <div class="mt-8 md:mt-10 grid grid-cols-3 gap-3 md:gap-6 max-w-[820px] mx-auto">
+      <div class="postcard text-center">
+        <img src="./assets/ASSET_FEATURE_ICON_3.png" alt="解説コーナー" class="w-16 h-16 md:w-20 md:h-20 mx-auto">
+        <p class="mt-2 font-mono-show text-[10px] tracking-[.18em]">CORNER 01</p>
+        <p class="font-serif-show text-[15px] md:text-[18px]">解説</p>
+        <p class="text-[11px] md:text-[12px] text-[color:var(--navy)]/70 mt-1">毎問つく</p>
+      </div>
+      <div class="postcard text-center">
+        <img src="./assets/ASSET_FEATURE_ICON_2.png" alt="スマホコーナー" class="w-16 h-16 md:w-20 md:h-20 mx-auto">
+        <p class="mt-2 font-mono-show text-[10px] tracking-[.18em]">CORNER 02</p>
+        <p class="font-serif-show text-[15px] md:text-[18px]">スマホ</p>
+        <p class="text-[11px] md:text-[12px] text-[color:var(--navy)]/70 mt-1">電車の5分で</p>
+      </div>
+      <div class="postcard text-center">
+        <img src="./assets/ASSET_FEATURE_ICON_1.png" alt="問題集コーナー" class="w-16 h-16 md:w-20 md:h-20 mx-auto">
+        <p class="mt-2 font-mono-show text-[10px] tracking-[.18em]">CORNER 03</p>
+        <p class="font-serif-show text-[15px] md:text-[18px]">問題集</p>
+        <p class="text-[11px] md:text-[12px] text-[color:var(--navy)]/70 mt-1">5,000問以上</p>
+      </div>
+    </div>
+
+    <!-- Two screenshots like a notebook spread -->
+    <div class="mt-10 md:mt-14 grid md:grid-cols-2 gap-8 md:gap-10 items-start">
+
+      <div class="note-paper relative">
+        <span class="corner-pin" style="top:-9px; left:14px;"></span>
+        <div class="flex items-center justify-between relative mb-3">
+          <span class="font-handwrite text-[20px] md:text-[24px]">問題、こんな感じ。</span>
+          <span class="font-mono-show text-[10px] text-[color:var(--navy)]/60">PAGE 01</span>
+        </div>
+        <div class="phone-frame max-w-[260px] mx-auto relative">
+          <img src="./assets/ASSET_PHONE_SCREEN_QUIZ.png" alt="Webtestpilot 出題画面">
+        </div>
+        <p class="font-handwrite text-[17px] md:text-[19px] mt-3 text-center text-[color:var(--navy)]/80">
+          ↑ 言語の例題。1問ずつテンポよく。
+        </p>
+      </div>
+
+      <div class="note-paper relative">
+        <span class="corner-pin" style="top:-9px; right:14px; background:var(--navy)"></span>
+        <div class="flex items-center justify-between relative mb-3">
+          <span class="font-mono-show text-[10px] text-[color:var(--navy)]/60">PAGE 02</span>
+          <span class="font-handwrite text-[20px] md:text-[24px]">解説、こう載る。</span>
+        </div>
+        <div class="phone-frame max-w-[260px] mx-auto relative">
+          <img src="./assets/ASSET_PHONE_SCREEN_EXPLAIN.png" alt="Webtestpilot 解説画面">
+        </div>
+        <p class="font-handwrite text-[17px] md:text-[19px] mt-3 text-center text-[color:var(--navy)]/80">
+          ↑ 間違えても、置いてかれへん。
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- divider -->
+  <div class="mt-14">
+    <svg class="block w-full h-[40px] md:h-[60px] wave-drift wave-fill-navy" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,30 Q120,55 240,30 T480,30 T720,30 T960,30 T1200,30 T1440,30 L1440,60 L0,60 Z" opacity=".95"/>
+    </svg>
+  </div>
+</section>
+
+<!-- 5. 番組グッズ売り場 -->
+<section id="guds" class="relative bg-[color:var(--navy)] text-[color:var(--cream)] py-14 md:py-20">
+  <div class="vert-deco l text-[color:var(--cream)]/50">PROGRAM MERCH / EP.28</div>
+  <div class="vert-deco r text-[color:var(--cream)]/50">LISTENER PRICE</div>
+
+  <div class="max-w-[1100px] mx-auto px-4 md:px-8">
+
+    <div class="flex items-center justify-between mb-5">
+      <span class="ep-badge bg-transparent text-[color:var(--cream)] border-[color:var(--cream)]"><span class="sq" style="background:var(--cream)"></span>EP.28 / 番組グッズ売り場</span>
+      <span class="font-mono-show text-[11px] text-[color:var(--cream)]/70">— MERCH BOOTH —</span>
+    </div>
+
+    <h2 class="font-serif-show text-[28px] md:text-[44px] leading-tight">
+      番組で使ってるアプリ、<br>
+      <span class="text-[color:var(--pink-2)]">リスナー価格で。</span>
+    </h2>
+    <p class="mt-3 text-[14px] md:text-[16px] text-[color:var(--cream)]/85 max-w-[640px] leading-relaxed">
+      SPI (言語 / 非言語) と 玉手箱 (四則逆算 / 表の空欄推測 / 図表の読み取り / 趣旨判定)。
+      合わせて 5,000問以上。電車のスキマ時間でいける。
+    </p>
+
+    <div class="mt-8 md:mt-10 grid md:grid-cols-12 gap-8 md:gap-10 items-center">
+
+      <!-- Cassette tape with ¥600 -->
+      <div class="md:col-span-5">
+        <div class="cassette max-w-[360px] mx-auto">
+          <div class="flex items-center justify-between font-mono-show text-[10px] tracking-[.18em] opacity-90">
+            <span>SIDE A · HONNE RADIO</span>
+            <span>C-60</span>
+          </div>
+          <div class="reels">
+            <div class="reel"></div>
+            <div class="reel"></div>
+          </div>
+          <div class="label">
+            <span class="block text-[1rem] font-mono-show text-[color:var(--tape-2)]">PROGRAM MERCH</span>
+            <span class="block text-[2.6rem] leading-none mt-1">¥600<span class="text-[1rem] align-middle">（税込）</span></span>
+          </div>
+          <p class="text-center font-mono-show text-[10px] tracking-[.18em] opacity-85 mt-3">WEBTESTPILOT · EP.28</p>
+        </div>
+        <p class="mt-4 text-center font-handwrite text-[20px] md:text-[22px] text-[color:var(--pink-2)]">
+          ぼん&amp;もくが使ってる、¥600のやつ。
+        </p>
+      </div>
+
+      <!-- What's inside -->
+      <div class="md:col-span-7">
+        <div class="bg-[color:var(--cream)] text-[color:var(--navy)] rounded-2xl p-5 md:p-7 border border-[color:var(--cream-2)] shadow-[5px_5px_0_rgba(232,165,165,.6)]">
+          <p class="font-mono-show text-[10px] tracking-[.18em] text-[color:var(--navy)]/60">WHAT'S INSIDE</p>
+          <h3 class="font-serif-show text-[22px] md:text-[28px] mt-1">番組グッズの中身</h3>
+
+          <div class="mt-4 grid sm:grid-cols-2 gap-3">
+            <div class="border border-[color:var(--navy)]/15 rounded-lg p-3">
+              <p class="font-mono-show text-[10px] text-[color:var(--navy)]/60">A-SIDE</p>
+              <p class="font-bold text-[15px]">SPI</p>
+              <p class="text-[12px] text-[color:var(--navy)]/75">言語 / 非言語</p>
+            </div>
+            <div class="border border-[color:var(--navy)]/15 rounded-lg p-3">
+              <p class="font-mono-show text-[10px] text-[color:var(--navy)]/60">B-SIDE</p>
+              <p class="font-bold text-[15px]">玉手箱</p>
+              <p class="text-[12px] text-[color:var(--navy)]/75">四則逆算 / 表の空欄推測 / 図表の読み取り / 趣旨判定</p>
+            </div>
+          </div>
+
+          <ul class="mt-4 space-y-1.5 text-[13px] md:text-[14px]">
+            <li>・5,000問以上 / 解説が毎問つく</li>
+            <li>・スマホ最適化（電車・寝る前にもいける）</li>
+            <li>・¥600（税込）/ 買い切り型</li>
+          </ul>
+
+          <div class="mt-5">
+            <a href="#sign-off" class="cta-btn w-full justify-center">
+              <span aria-hidden="true">📻</span>
+              <span>番組を聴く（プロフィールへ）</span>
+              <span class="arr">→</span>
+            </a>
+            <p class="mt-2 text-[11px] font-mono-show text-[color:var(--navy)]/65 text-center">購入は IGプロフィールのリンクから</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- divider -->
+  <svg class="block w-full h-[40px] md:h-[60px] wave-drift mt-12" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,30 Q120,55 240,30 T480,30 T720,30 T960,30 T1200,30 T1440,30 L1440,60 L0,60 Z" fill="#F5EFE6"/>
+  </svg>
+</section>
+
+<!-- 6. EP.28 トーク後半 -->
+<section id="b-side" class="relative py-14 md:py-20">
+  <div class="vert-deco l">EP.28 / B-SIDE / 03:40 — 05:50</div>
+  <div class="vert-deco r">SCRIPT B / CLOSING TALK</div>
+
+  <div class="max-w-[960px] mx-auto px-4 md:px-8">
+
+    <div class="flex items-center justify-between mb-5">
+      <span class="ep-badge"><span class="sq"></span>EP.28 / B-SIDE</span>
+      <span class="font-mono-show text-[11px] text-[color:var(--navy)]/70">CUE — 03:40</span>
+    </div>
+
+    <h2 class="font-serif-show text-[26px] md:text-[40px] leading-tight">あと、これは言うとくな。</h2>
+
+    <div class="mt-8 space-y-5 md:space-y-7">
+
+      <!-- moku -->
+      <div class="reveal flex items-end gap-3 md:gap-4 flex-row-reverse">
+        <img src="./icons/moku-circle.png" alt="もく" class="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-[color:var(--pink)] bg-[color:var(--cream)] shrink-0">
+        <div class="bubble moku max-w-[78%] md:max-w-[70%]">
+          <p class="font-mono-show text-[10px] text-[color:var(--navy)]/60 mb-1 text-right">もく · 27卒</p>
+          <p class="text-[15px] md:text-[17px] leading-relaxed">一個だけ言うとくと、これ"絶対受かる系"ちゃうからな。</p>
+        </div>
+      </div>
+
+      <!-- bon -->
+      <div class="reveal flex items-end gap-3 md:gap-4">
+        <img src="./icons/bon-circle.png" alt="ぼん" class="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-[color:var(--navy)] bg-[color:var(--cream)] shrink-0">
+        <div class="bubble bon max-w-[78%] md:max-w-[70%]">
+          <p class="font-mono-show text-[10px] text-[color:var(--navy)]/60 mb-1">ぼん · 28卒</p>
+          <p class="text-[15px] md:text-[17px] leading-relaxed">うん、地味に問題こなすだけのアプリ。</p>
+        </div>
+      </div>
+
+      <!-- moku -->
+      <div class="reveal flex items-end gap-3 md:gap-4 flex-row-reverse">
+        <img src="./icons/moku-circle.png" alt="もく" class="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-[color:var(--pink)] bg-[color:var(--cream)] shrink-0">
+        <div class="bubble moku max-w-[78%] md:max-w-[70%]">
+          <p class="font-mono-show text-[10px] text-[color:var(--navy)]/60 mb-1 text-right">もく</p>
+          <p class="text-[15px] md:text-[17px] leading-relaxed">でも電車の5分でできるのがデカい。机に向かう時間、就活って意外と取れへんから。</p>
+        </div>
+      </div>
+
+      <!-- bon -->
+      <div class="reveal flex items-end gap-3 md:gap-4">
+        <img src="./icons/bon-circle.png" alt="ぼん" class="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-[color:var(--navy)] bg-[color:var(--cream)] shrink-0">
+        <div class="bubble bon max-w-[78%] md:max-w-[70%]">
+          <p class="font-mono-show text-[10px] text-[color:var(--navy)]/60 mb-1">ぼん</p>
+          <p class="text-[15px] md:text-[17px] leading-relaxed">で、解説がちゃんと載ってるから、間違えた時に置いてかれへん。</p>
+        </div>
+      </div>
+
+      <!-- moku -->
+      <div class="reveal flex items-end gap-3 md:gap-4 flex-row-reverse">
+        <img src="./icons/moku-circle.png" alt="もく" class="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-[color:var(--pink)] bg-[color:var(--cream)] shrink-0">
+        <div class="bubble moku max-w-[78%] md:max-w-[70%]">
+          <p class="font-mono-show text-[10px] text-[color:var(--navy)]/60 mb-1 text-right">もく</p>
+          <p class="text-[15px] md:text-[17px] leading-relaxed">リスナーで気になる人はプロフィールから飛んでみて。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- divider -->
+  <div class="mt-14">
+    <svg class="block w-full h-[40px] md:h-[60px] wave-drift wave-fill-pink" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,30 Q120,5 240,30 T480,30 T720,30 T960,30 T1200,30 T1440,30 L1440,60 L0,60 Z" opacity=".85"/>
+    </svg>
+  </div>
+</section>
+
+<!-- 7. お便り箱 -->
+<section id="mail" class="relative bg-[color:var(--cream-2)]/70 py-14 md:py-20">
+  <div class="vert-deco l">LISTENER MAIL / 📮</div>
+  <div class="vert-deco r">JUNK STYLE CORNERS</div>
+
+  <div class="max-w-[1200px] mx-auto px-4 md:px-8">
+
+    <div class="flex items-center justify-between mb-5">
+      <span class="ep-badge"><span class="sq"></span>EP.28 / MAILBOX</span>
+      <span class="font-mono-show text-[11px] text-[color:var(--navy)]/70">— 📮 お便り箱 —</span>
+    </div>
+
+    <div class="grid md:grid-cols-12 gap-8 md:gap-10 items-center mb-10">
+      <div class="md:col-span-8">
+        <h2 class="font-serif-show text-[28px] md:text-[42px] leading-tight">お便り、待ってます。</h2>
+        <p class="mt-2 font-handwrite text-[20px] md:text-[24px] text-[color:var(--pink)]">就活の本音、深夜2時のグチ、なんでも。</p>
+        <p class="mt-3 text-[14px] md:text-[15px] text-[color:var(--navy)]/85 leading-relaxed max-w-[640px]">
+          番組内には「ぼんの相談」「もくの暴露」の2コーナー。プロフィールのDMから送ってもらえれば、次回以降の放送で読みます。
+        </p>
+        <p class="mt-3 text-[13px]">
+          📮 <a href="#sign-off" class="underline underline-offset-4">お便りを送る（プロフィールのDMへ）</a>
+        </p>
+      </div>
+      <div class="md:col-span-4 flex justify-center">
+        <!-- Vinyl record SVG -->
+        <div class="vinyl-wrap">
+          <svg class="vinyl" viewBox="0 0 200 200" aria-hidden="true">
+            <circle cx="100" cy="100" r="98" fill="#1B2A4E"/>
+            <circle cx="100" cy="100" r="88" fill="none" stroke="#3a4a72" stroke-width="0.5"/>
+            <circle cx="100" cy="100" r="78" fill="none" stroke="#3a4a72" stroke-width="0.5"/>
+            <circle cx="100" cy="100" r="68" fill="none" stroke="#3a4a72" stroke-width="0.5"/>
+            <circle cx="100" cy="100" r="58" fill="none" stroke="#3a4a72" stroke-width="0.5"/>
+            <circle cx="100" cy="100" r="40" fill="#E8A5A5"/>
+            <circle cx="100" cy="100" r="38" fill="none" stroke="#1B2A4E" stroke-width="0.6"/>
+            <text x="100" y="92" text-anchor="middle" font-family="DM Mono" font-size="6" fill="#1B2A4E">HONNE RADIO</text>
+            <text x="100" y="103" text-anchor="middle" font-family="Playfair Display" font-size="9" font-weight="700" fill="#1B2A4E">EP.28</text>
+            <text x="100" y="114" text-anchor="middle" font-family="DM Mono" font-size="5" fill="#1B2A4E">SIDE A · WEBTESTPILOT</text>
+            <circle cx="100" cy="100" r="3" fill="#1B2A4E"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2 segment corners -->
+    <div class="grid md:grid-cols-2 gap-5 md:gap-6 mb-10">
+      <div class="postcard">
+        <div class="flex items-center justify-between mb-2">
+          <span class="font-mono-show text-[10px] tracking-[.18em]">CORNER A</span>
+          <span class="onair-dot" aria-hidden="true"></span>
+        </div>
+        <p class="font-serif-show text-[20px] md:text-[24px]">「ぼんの相談」</p>
+        <p class="text-[13px] md:text-[14px] text-[color:var(--navy)]/80 mt-1">就活、選考、SPI、なんでもアリ。28卒の本音目線で答えます。</p>
+      </div>
+      <div class="postcard">
+        <div class="flex items-center justify-between mb-2">
+          <span class="font-mono-show text-[10px] tracking-[.18em]">CORNER B</span>
+          <span class="onair-dot" aria-hidden="true"></span>
+        </div>
+        <p class="font-serif-show text-[20px] md:text-[24px]">「もくの暴露」</p>
+        <p class="text-[13px] md:text-[14px] text-[color:var(--navy)]/80 mt-1">27卒側から、社会人になって思うことを暴露。匿名で読みます。</p>
+      </div>
+    </div>
+
+    <!-- FAQ as postcards -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-5 md:gap-6">
+      <div class="postcard">
+        <p class="font-mono-show text-[10px] tracking-[.18em] text-[color:var(--navy)]/60">📮 LETTER 01</p>
+        <p class="font-serif-show text-[16px] md:text-[19px] mt-1">Q. これ買えば受かりますか？</p>
+        <p class="text-[13px] md:text-[14px] text-[color:var(--navy)]/85 mt-2 leading-relaxed">
+          A. いいえ。問題を地味にこなすためのアプリです。ただ「電車の5分で進める」のと「解説が毎問つく」ので、続けやすさは強み。
+        </p>
+      </div>
+      <div class="postcard">
+        <p class="font-mono-show text-[10px] tracking-[.18em] text-[color:var(--navy)]/60">📮 LETTER 02</p>
+        <p class="font-serif-show text-[16px] md:text-[19px] mt-1">Q. どんな試験に対応？</p>
+        <p class="text-[13px] md:text-[14px] text-[color:var(--navy)]/85 mt-2 leading-relaxed">
+          A. SPI（言語・非言語）と 玉手箱（四則逆算・表の空欄推測・図表の読み取り・趣旨判定）。それ以外は今のところ未収録です。
+        </p>
+      </div>
+      <div class="postcard">
+        <p class="font-mono-show text-[10px] tracking-[.18em] text-[color:var(--navy)]/60">📮 LETTER 03</p>
+        <p class="font-serif-show text-[16px] md:text-[19px] mt-1">Q. ¥600って何の値段？</p>
+        <p class="text-[13px] md:text-[14px] text-[color:var(--navy)]/85 mt-2 leading-relaxed">
+          A. アプリの買い切り価格（税込）です。月額じゃなく一括。ぼん&amp;もくが番組で使ってるやつをそのまま、リスナー価格で。
+        </p>
+      </div>
+      <div class="postcard">
+        <p class="font-mono-show text-[10px] tracking-[.18em] text-[color:var(--navy)]/60">📮 LETTER 04</p>
+        <p class="font-serif-show text-[16px] md:text-[19px] mt-1">Q. ぼん&amp;もくに直接質問していい？</p>
+        <p class="text-[13px] md:text-[14px] text-[color:var(--navy)]/85 mt-2 leading-relaxed">
+          A. はい、プロフィールのDMへ。次回放送で取り上げるかも。匿名希望は「匿名で」と一言添えてください。
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- divider -->
+  <div class="mt-14">
+    <svg class="block w-full h-[40px] md:h-[60px] wave-drift wave-fill-navy" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,30 Q120,55 240,30 T480,30 T720,30 T960,30 T1200,30 T1440,30 L1440,60 L0,60 Z" opacity=".95"/>
+    </svg>
+  </div>
+</section>
+
+<!-- 8. 次回予告 / サインオフ -->
+<section id="sign-off" class="relative bg-[color:var(--navy)] text-[color:var(--cream)] py-14 md:py-20">
+  <div class="vert-deco l text-[color:var(--cream)]/50">SIGN OFF / NEXT EP.29</div>
+  <div class="vert-deco r text-[color:var(--cream)]/50">THANKS FOR LISTENING</div>
+
+  <div class="max-w-[1100px] mx-auto px-4 md:px-8">
+
+    <div class="flex items-center justify-between mb-5">
+      <span class="ep-badge bg-transparent text-[color:var(--cream)] border-[color:var(--cream)]"><span class="sq" style="background:var(--cream)"></span>EP.28 / SIGN OFF</span>
+      <span class="font-mono-show text-[11px] text-[color:var(--cream)]/70">— FADE OUT —</span>
+    </div>
+
+    <div class="grid md:grid-cols-12 gap-8 md:gap-10 items-center">
+
+      <div class="md:col-span-7">
+        <p class="font-mono-show text-[11px] tracking-[.2em] text-[color:var(--pink-2)]">NEXT WEEK / EP.29</p>
+        <h2 class="font-serif-show text-[28px] md:text-[44px] leading-tight mt-2">
+          来週は<br>
+          <span class="underline-hand">「リスナーQ&amp;A」回</span>。
+        </h2>
+        <p class="mt-4 text-[14px] md:text-[16px] text-[color:var(--cream)]/85 max-w-[560px] leading-relaxed">
+          今夜のお便りボックスに届いた質問から、何通か放送で読みます。今のうちにプロフィールのDMへ送っといてください。
+        </p>
+
+        <div class="mt-7 flex flex-col md:flex-row gap-3 md:items-center">
+          <a href="https://webtestpilot.carynstegia.com/customers/sign_up" class="cta-btn justify-center md:justify-start">
+            <span aria-hidden="true">📻</span>
+            <span>番組を聴く（プロフィールへ）</span>
+            <span class="arr">→</span>
+          </a>
+          <p class="text-[11px] md:text-[12px] font-mono-show text-[color:var(--cream)]/70">番組グッズ ¥600（税込）／ DMもプロフィールから</p>
+        </div>
+      </div>
+
+      <div class="md:col-span-5">
+        <div class="flex items-end justify-center overlap-icons">
+          <div class="flex flex-col items-center">
+            <img src="./icons/bon-circle.png" alt="ぼん" class="w-[110px] h-[110px] md:w-[130px] md:h-[130px] rounded-full border-4 border-[color:var(--cream)] bg-[color:var(--cream)] shadow-lg">
+            <span class="font-mono-show text-[10px] mt-2 opacity-80">BON · 28卒</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <img src="./icons/moku-circle.png" alt="もく" class="w-[110px] h-[110px] md:w-[130px] md:h-[130px] rounded-full border-4 border-[color:var(--cream)] bg-[color:var(--cream)] shadow-lg">
+            <span class="font-mono-show text-[10px] mt-2 opacity-80">MOKU · 27卒</span>
+          </div>
+        </div>
+
+        <p class="mt-6 text-center font-handwrite text-[26px] md:text-[34px] text-[color:var(--pink-2)]">
+          おやすみ、また来週。
+        </p>
+      </div>
+    </div>
+
+    <!-- final dial -->
+    <div class="mt-12 md:mt-16 flex items-center justify-center gap-4 opacity-90">
+      <div class="knob" aria-hidden="true"></div>
+      <div class="flex items-end">
+        <span class="dial-tick big" style="background:var(--cream)"></span>
+        <span class="dial-tick" style="background:var(--cream)"></span>
+        <span class="dial-tick" style="background:var(--cream)"></span>
+        <span class="dial-tick big" style="background:var(--cream)"></span>
+        <span class="dial-tick" style="background:var(--cream)"></span>
+        <span class="dial-tick" style="background:var(--cream)"></span>
+        <span class="dial-tick big" style="background:var(--cream)"></span>
+        <span class="dial-tick" style="background:var(--cream)"></span>
+        <span class="dial-tick" style="background:var(--cream)"></span>
+      </div>
+      <div class="knob" aria-hidden="true"></div>
+    </div>
+
+  </div>
+
+  <!-- final wave -->
+  <svg class="block w-full h-[40px] md:h-[60px] wave-drift mt-12" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,30 Q120,55 240,30 T480,30 T720,30 T960,30 T1200,30 T1440,30 L1440,60 L0,60 Z" fill="#F5EFE6"/>
+  </svg>
+</section>
+
+<!-- Footer -->
+<footer class="bg-[color:var(--cream)] text-[color:var(--navy)] py-10 md:py-14">
+  <div class="max-w-[1200px] mx-auto px-4 md:px-8">
+    <div class="grid md:grid-cols-12 gap-6 md:gap-8 items-start">
+      <div class="md:col-span-5">
+        <p class="font-mono-show text-[11px] tracking-[.18em] opacity-70">HONNE RADIO — ぼん＆もくの本音ラジオ</p>
+        <p class="mt-1 text-[12px] md:text-[13px] leading-relaxed text-[color:var(--navy)]/80">
+          番組内で紹介しているアプリ「Webtestpilot」は、CARYNSTEGIA, Inc. が運営しています。<br>
+          ぼん&amp;もくは販売パートナーとして紹介しています。
+        </p>
+      </div>
+      <div class="md:col-span-4">
+        <p class="font-mono-show text-[11px] tracking-[.18em] opacity-70">LINKS</p>
+        <ul class="mt-2 text-[13px] space-y-1">
+          <li><a href="https://webtestpilot.carynstegia.com/customers/sign_up" class="underline underline-offset-4">新規登録</a></li>
+          <li><a href="https://webtestpilot.carynstegia.com/customers/sign_in" class="underline underline-offset-4">ログイン</a></li>
+          <li><a href="#" class="underline underline-offset-4">特定商取引法に基づく表記</a></li>
+          <li><a href="#" class="underline underline-offset-4">利用規約 / プライバシー</a></li>
+        </ul>
+      </div>
+      <div class="md:col-span-3 md:text-right">
+        <p class="font-mono-show text-[10px] opacity-70">※当ページはモック表記を含む試作版です。</p>
+        <p class="font-mono-show text-[11px] mt-3 opacity-80">© CARYNSTEGIA, Inc.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll progress bar
+  (function(){
+    const bar = document.getElementById('progress');
+    function onScroll(){
+      const h = document.documentElement;
+      const scrolled = h.scrollTop / (h.scrollHeight - h.clientHeight);
+      bar.style.width = (scrolled * 100) + '%';
+    }
+    document.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+  })();
+
+  // Hero stagger (per character)
+  (function(){
+    const targets = [document.getElementById('hero-title-1'), document.getElementById('hero-title-2')];
+    targets.forEach((node, idx) => {
+      if(!node) return;
+      const html = node.innerHTML;
+      // Walk text nodes only
+      const wrap = document.createElement('span');
+      wrap.innerHTML = html;
+      function process(el, accDelay){
+        const children = Array.from(el.childNodes);
+        let delay = accDelay;
+        children.forEach(child => {
+          if(child.nodeType === 3){ // text
+            const text = child.textContent;
+            const frag = document.createDocumentFragment();
+            for(const ch of text){
+              if(ch === ' '){ frag.appendChild(document.createTextNode(' ')); continue; }
+              const s = document.createElement('span');
+              s.className = 'hero-char';
+              s.style.animationDelay = (delay) + 'ms';
+              s.textContent = ch;
+              frag.appendChild(s);
+              delay += 55; // different from v1 timing
+            }
+            child.parentNode.replaceChild(frag, child);
+          } else if(child.nodeType === 1){
+            delay = process(child, delay);
+          }
+        });
+        return delay;
+      }
+      // initial delay differs per line
+      const baseDelay = idx === 0 ? 200 : 900;
+      process(node, baseDelay);
+    });
+  })();
+
+  // Intersection Observer reveal
+  (function(){
+    const els = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){
+      els.forEach(el => el.classList.add('in'));
+      return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if(e.isIntersecting){
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, {threshold: 0.18, rootMargin: '0px 0px -40px 0px'});
+    els.forEach(el => io.observe(el));
+  })();
+</script>
+
+</body>
+</html>

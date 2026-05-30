@@ -338,16 +338,16 @@
 
 <!-- Header -->
 <header class="sticky top-0 z-40 bg-[color:var(--cream)]/85 backdrop-blur border-b border-[color:var(--navy)]/15">
-  <div class="max-w-[1200px] mx-auto px-4 md:px-6 h-14 md:h-16 flex items-center justify-between">
-    <a href="#fv" class="flex items-center gap-2">
-      <span class="onair-dot" aria-hidden="true"></span>
-      <span class="font-mono-show text-[11px] md:text-[13px] tracking-[.18em] uppercase">honne radio</span>
-      <span class="hidden md:inline font-serif-show text-[15px] ml-1">— #28 webtestpilot</span>
-      <span class="text-[0.55rem] tracking-[0.3em] font-mono-show text-[color:var(--navy)]/60 ml-1.5 border border-[color:var(--navy)]/30 px-1.5 py-0.5 rounded">SALES LP</span>
+  <div class="max-w-[1200px] mx-auto px-3 md:px-6 h-14 md:h-16 flex items-center justify-between gap-2">
+    <a href="#fv" class="flex items-center gap-1.5 md:gap-2 min-w-0 flex-shrink">
+      <span class="onair-dot shrink-0" aria-hidden="true"></span>
+      <span class="font-mono-show text-[10px] md:text-[13px] tracking-[.16em] md:tracking-[.18em] uppercase whitespace-nowrap">honne radio</span>
+      <span class="hidden md:inline font-serif-show text-[15px] ml-1 whitespace-nowrap">— #28 webtestpilot</span>
+      <span class="hidden sm:inline-block text-[0.55rem] tracking-[0.3em] font-mono-show text-[color:var(--navy)]/60 ml-1.5 border border-[color:var(--navy)]/30 px-1.5 py-0.5 rounded whitespace-nowrap">SALES LP</span>
     </a>
-    <nav class="flex items-center gap-2">
-      <a href="https://webtestpilot.carynstegia.com/customers/sign_in" class="hdr-btn border border-[color:var(--navy)] text-[color:var(--navy)] bg-transparent hover:bg-[color:var(--navy)]/5">ログイン</a>
-      <a href="https://webtestpilot.carynstegia.com/customers/sign_up" class="hdr-btn bg-[color:var(--navy)] text-[color:var(--cream)] hover:opacity-90">新規登録</a>
+    <nav class="flex items-center gap-1.5 md:gap-2 shrink-0">
+      <a href="https://webtestpilot.carynstegia.com/customers/sign_in" class="hdr-btn border border-[color:var(--navy)] text-[color:var(--navy)] bg-transparent hover:bg-[color:var(--navy)]/5 text-[11px] md:text-[13px] px-2.5 md:px-4 whitespace-nowrap">ログイン</a>
+      <a href="https://webtestpilot.carynstegia.com/customers/sign_up" class="hdr-btn bg-[color:var(--navy)] text-[color:var(--cream)] hover:opacity-90 text-[11px] md:text-[13px] px-2.5 md:px-4 whitespace-nowrap">新規登録</a>
     </nav>
   </div>
 </header>
@@ -357,31 +357,28 @@
   <div class="hero-bg" aria-hidden="true"></div>
   <div class="hero-overlay" aria-hidden="true"></div>
 
-  <!-- vertical deco -->
-  <div class="vert-deco l text-white/80">PROGRAM // HONNE RADIO // 02:00 AM</div>
-  <div class="vert-deco r text-white/80">EP.28 / WEBTESTPILOT / 2026.05.29 OA</div>
+  <!-- vertical deco (desktop only) -->
+  <div class="vert-deco l text-white/80 hidden md:block">PROGRAM // HONNE RADIO // 02:00 AM</div>
+  <div class="vert-deco r text-white/80 hidden md:block">EP.28 / WEBTESTPILOT / 2026.05.29 OA</div>
 
   <div class="relative max-w-[1200px] mx-auto px-4 md:px-8 pt-8 md:pt-12 pb-16 md:pb-20">
 
     <!-- Top row: ON AIR + sales pill + corner tags -->
-    <div class="flex items-center justify-between gap-3 mb-6 md:mb-8 flex-wrap">
+    <div class="flex items-center justify-between gap-2 mb-6 md:mb-8 flex-wrap">
       <div class="flex items-center gap-2 flex-wrap">
-        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[color:var(--pink-2)] text-white text-[0.6rem] tracking-[0.22em] font-mono-show shadow-[2px_2px_0_rgba(27,42,78,.25)]">
-          <span aria-hidden="true">▶</span> 今夜のオススメ：Webテスト対策アプリ ¥600
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[color:var(--pink-2)] text-white text-[10px] md:text-[0.6rem] tracking-[0.18em] md:tracking-[0.22em] font-mono-show shadow-[2px_2px_0_rgba(27,42,78,.25)] whitespace-nowrap">
+          <span aria-hidden="true">▶</span> <span class="md:hidden">PR · 600円アプリ</span><span class="hidden md:inline">今夜のオススメ：Webテスト対策アプリ ¥600</span>
         </span>
         <div class="onair-card">
           <span class="onair-dot lg" aria-hidden="true"></span>
           <span>ON AIR</span>
           <span class="text-[color:var(--navy)]">·</span>
-          <span>#28 / 2026.05.29</span>
+          <span class="whitespace-nowrap">#28</span>
         </div>
       </div>
       <div class="hidden md:flex items-center gap-2">
         <span class="corner-tag">HONNE RADIO</span>
         <span class="corner-tag">LIVE FROM 関西</span>
-      </div>
-      <div class="md:hidden">
-        <span class="corner-tag">HONNE</span>
       </div>
     </div>
 

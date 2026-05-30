@@ -78,8 +78,10 @@
     padding:14px 16px;
     box-shadow:3px 3px 0 rgba(27,42,78,.12);
   }
-  .bubble.bon{ border-color:var(--navy); background:#fff; }
-  .bubble.moku{ border-color:var(--pink); background:#FFF7F4; }
+  .bubble.bon{ border-color:var(--navy); background:#fff; color:var(--navy); }
+  .bubble.moku{ border-color:var(--pink); background:#FFF7F4; color:var(--navy); }
+  .bubble p{ color:var(--navy) !important; }
+  .bubble .font-mono-show{ opacity:1 !important; }
   .bubble.bon::after, .bubble.moku::after{
     content:""; position:absolute; bottom:-9px; width:14px; height:14px; background:inherit;
     border-right:1.5px solid; border-bottom:1.5px solid; transform:rotate(45deg);
@@ -370,7 +372,7 @@
         <div class="onair-card">
           <span class="onair-dot lg" aria-hidden="true"></span>
           <span>ON AIR</span>
-          <span class="text-[color:var(--navy)]/85">·</span>
+          <span class="text-[color:var(--navy)]">·</span>
           <span>#28 / 2026.05.29</span>
         </div>
       </div>
@@ -427,7 +429,7 @@
       <p class="font-serif-show text-[22px] md:text-[30px] leading-snug">
         今夜のテーマ：<span class="underline-hand">Webテ、みんなどうしてる？</span>
       </p>
-      <p class="mt-3 text-[14px] md:text-[15px] leading-relaxed text-[color:var(--navy)]/85">
+      <p class="mt-3 text-[14px] md:text-[15px] leading-relaxed text-[color:var(--navy)]">
         参考書しんどい、電車で開く気にならん。— そういう本音から始まる回。<br>
         後半で、番組で実際に使ってるアプリの話もします。
       </p>
@@ -499,7 +501,7 @@
       <div class="reveal flex items-end gap-3 md:gap-4">
         <img src="./icons/bon-circle.png" alt="ぼん" class="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-[color:var(--cream)] bg-[color:var(--cream)] shrink-0">
         <div class="bubble bon max-w-[78%] md:max-w-[70%]">
-          <p class="font-mono-show text-[10px] text-[color:var(--navy)]/85 mb-1">ぼん · 28卒</p>
+          <p class="font-mono-show text-[10px] text-[color:var(--navy)] mb-1">ぼん · 28卒</p>
           <p class="text-[15px] md:text-[17px] leading-relaxed">もくさん、今日リスナーから来てた質問なんやけど。</p>
         </div>
       </div>
@@ -507,7 +509,7 @@
       <div class="reveal flex items-end gap-3 md:gap-4 flex-row-reverse">
         <img src="./icons/moku-circle.png" alt="もく" class="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-[color:var(--pink)] bg-[color:var(--cream)] shrink-0">
         <div class="bubble moku max-w-[78%] md:max-w-[70%]">
-          <p class="font-mono-show text-[10px] text-[color:var(--navy)]/85 mb-1 text-right">もく · 27卒</p>
+          <p class="font-mono-show text-[10px] text-[color:var(--navy)] mb-1 text-right">もく · 27卒</p>
           <p class="text-[15px] md:text-[17px] leading-relaxed">お、なになに。</p>
         </div>
       </div>
@@ -515,7 +517,7 @@
       <div class="reveal flex items-end gap-3 md:gap-4">
         <img src="./icons/bon-circle.png" alt="ぼん" class="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-[color:var(--cream)] bg-[color:var(--cream)] shrink-0">
         <div class="bubble bon max-w-[78%] md:max-w-[70%]">
-          <p class="font-mono-show text-[10px] text-[color:var(--navy)]/85 mb-1">ぼん</p>
+          <p class="font-mono-show text-[10px] text-[color:var(--navy)] mb-1">ぼん</p>
           <p class="text-[15px] md:text-[17px] leading-relaxed">「Webテ何で対策してます？」って。</p>
         </div>
       </div>
@@ -523,7 +525,7 @@
       <div class="reveal flex items-end gap-3 md:gap-4 flex-row-reverse">
         <img src="./icons/moku-circle.png" alt="もく" class="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-[color:var(--pink)] bg-[color:var(--cream)] shrink-0">
         <div class="bubble moku max-w-[78%] md:max-w-[70%]">
-          <p class="font-mono-show text-[10px] text-[color:var(--navy)]/85 mb-1 text-right">もく</p>
+          <p class="font-mono-show text-[10px] text-[color:var(--navy)] mb-1 text-right">もく</p>
           <p class="text-[15px] md:text-[17px] leading-relaxed">あー、それな。正直、参考書しんどない？電車で開く気にならんやろ。</p>
         </div>
       </div>
@@ -531,7 +533,7 @@
       <div class="reveal flex items-end gap-3 md:gap-4">
         <img src="./icons/bon-circle.png" alt="ぼん" class="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-[color:var(--cream)] bg-[color:var(--cream)] shrink-0">
         <div class="bubble bon max-w-[78%] md:max-w-[70%]">
-          <p class="font-mono-show text-[10px] text-[color:var(--navy)]/85 mb-1">ぼん</p>
+          <p class="font-mono-show text-[10px] text-[color:var(--navy)] mb-1">ぼん</p>
           <p class="text-[15px] md:text-[17px] leading-relaxed">わかる。俺ら最近スマホでサクッと派やんか。</p>
         </div>
       </div>
@@ -539,7 +541,7 @@
       <div class="reveal flex items-end gap-3 md:gap-4 flex-row-reverse">
         <img src="./icons/moku-circle.png" alt="もく" class="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-[color:var(--pink)] bg-[color:var(--cream)] shrink-0">
         <div class="bubble moku max-w-[78%] md:max-w-[70%]">
-          <p class="font-mono-show text-[10px] text-[color:var(--navy)]/85 mb-1 text-right">もく</p>
+          <p class="font-mono-show text-[10px] text-[color:var(--navy)] mb-1 text-right">もく</p>
           <p class="text-[15px] md:text-[17px] leading-relaxed">うん、あれ紹介していい？番組で普通に使ってるやつ。</p>
         </div>
       </div>
@@ -577,7 +579,7 @@
           <span class="underline-hand">そのアプリの話。</span>
         </h2>
 
-        <p class="mt-5 text-[15px] md:text-[16px] leading-relaxed text-[color:var(--navy)]/85">
+        <p class="mt-5 text-[15px] md:text-[16px] leading-relaxed text-[color:var(--navy)]">
           紙の参考書、たぶんもう開かんくない？— っていう本音から、ぼん&amp;もくが日常で使ってるのが <strong class="font-bold">Webtestpilot</strong>。<br class="hidden md:block">
           スマホでSPI(言語/非言語)と玉手箱を、5,000問以上。電車の5分で進む。
         </p>
@@ -663,7 +665,7 @@
         <span class="corner-pin" style="top:-9px; left:14px;"></span>
         <div class="flex items-center justify-between relative mb-3">
           <span class="font-handwrite text-[20px] md:text-[24px]">問題、こんな感じ。</span>
-          <span class="font-mono-show text-[10px] text-[color:var(--navy)]/85">PAGE 01</span>
+          <span class="font-mono-show text-[10px] text-[color:var(--navy)]">PAGE 01</span>
         </div>
         <div class="phone-frame max-w-[260px] mx-auto relative">
           <img src="./assets/ASSET_PHONE_SCREEN_QUIZ.png" alt="Webtestpilot 出題画面">
@@ -676,7 +678,7 @@
       <div class="note-paper relative">
         <span class="corner-pin" style="top:-9px; right:14px; background:var(--navy)"></span>
         <div class="flex items-center justify-between relative mb-3">
-          <span class="font-mono-show text-[10px] text-[color:var(--navy)]/85">PAGE 02</span>
+          <span class="font-mono-show text-[10px] text-[color:var(--navy)]">PAGE 02</span>
           <span class="font-handwrite text-[20px] md:text-[24px]">解説、こう載る。</span>
         </div>
         <div class="phone-frame max-w-[260px] mx-auto relative">
@@ -746,17 +748,17 @@
       <!-- What's inside -->
       <div class="md:col-span-7">
         <div class="bg-[color:var(--cream)] text-[color:var(--navy)] rounded-2xl p-5 md:p-7 border border-[color:var(--cream-2)] shadow-[5px_5px_0_rgba(232,165,165,.6)]">
-          <p class="font-mono-show text-[10px] tracking-[.18em] text-[color:var(--navy)]/85">WHAT'S INSIDE</p>
+          <p class="font-mono-show text-[10px] tracking-[.18em] text-[color:var(--navy)]">WHAT'S INSIDE</p>
           <h3 class="font-serif-show text-[22px] md:text-[28px] mt-1">番組グッズの中身</h3>
 
           <div class="mt-4 grid sm:grid-cols-2 gap-3">
             <div class="border border-[color:var(--navy)]/15 rounded-lg p-3">
-              <p class="font-mono-show text-[10px] text-[color:var(--navy)]/85">A-SIDE</p>
+              <p class="font-mono-show text-[10px] text-[color:var(--navy)]">A-SIDE</p>
               <p class="font-bold text-[15px]">SPI</p>
               <p class="text-[12px] text-[color:var(--navy)]/75">言語 / 非言語</p>
             </div>
             <div class="border border-[color:var(--navy)]/15 rounded-lg p-3">
-              <p class="font-mono-show text-[10px] text-[color:var(--navy)]/85">B-SIDE</p>
+              <p class="font-mono-show text-[10px] text-[color:var(--navy)]">B-SIDE</p>
               <p class="font-bold text-[15px]">玉手箱</p>
               <p class="text-[12px] text-[color:var(--navy)]/75">四則逆算 / 表の空欄推測 / 図表の読み取り / 趣旨判定</p>
             </div>
@@ -808,7 +810,7 @@
       <div class="reveal flex items-end gap-3 md:gap-4 flex-row-reverse">
         <img src="./icons/moku-circle.png" alt="もく" class="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-[color:var(--pink)] bg-[color:var(--cream)] shrink-0">
         <div class="bubble moku max-w-[78%] md:max-w-[70%]">
-          <p class="font-mono-show text-[10px] text-[color:var(--navy)]/85 mb-1 text-right">もく · 27卒</p>
+          <p class="font-mono-show text-[10px] text-[color:var(--navy)] mb-1 text-right">もく · 27卒</p>
           <p class="text-[15px] md:text-[17px] leading-relaxed">一個だけ言うとくと、これ"絶対受かる系"ちゃうからな。</p>
         </div>
       </div>
@@ -817,7 +819,7 @@
       <div class="reveal flex items-end gap-3 md:gap-4">
         <img src="./icons/bon-circle.png" alt="ぼん" class="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-[color:var(--navy)] bg-[color:var(--cream)] shrink-0">
         <div class="bubble bon max-w-[78%] md:max-w-[70%]">
-          <p class="font-mono-show text-[10px] text-[color:var(--navy)]/85 mb-1">ぼん · 28卒</p>
+          <p class="font-mono-show text-[10px] text-[color:var(--navy)] mb-1">ぼん · 28卒</p>
           <p class="text-[15px] md:text-[17px] leading-relaxed">うん、地味に問題こなすだけのアプリ。</p>
         </div>
       </div>
@@ -826,7 +828,7 @@
       <div class="reveal flex items-end gap-3 md:gap-4 flex-row-reverse">
         <img src="./icons/moku-circle.png" alt="もく" class="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-[color:var(--pink)] bg-[color:var(--cream)] shrink-0">
         <div class="bubble moku max-w-[78%] md:max-w-[70%]">
-          <p class="font-mono-show text-[10px] text-[color:var(--navy)]/85 mb-1 text-right">もく</p>
+          <p class="font-mono-show text-[10px] text-[color:var(--navy)] mb-1 text-right">もく</p>
           <p class="text-[15px] md:text-[17px] leading-relaxed">でも電車の5分でできるのがデカい。机に向かう時間、就活って意外と取れへんから。</p>
         </div>
       </div>
@@ -835,7 +837,7 @@
       <div class="reveal flex items-end gap-3 md:gap-4">
         <img src="./icons/bon-circle.png" alt="ぼん" class="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-[color:var(--navy)] bg-[color:var(--cream)] shrink-0">
         <div class="bubble bon max-w-[78%] md:max-w-[70%]">
-          <p class="font-mono-show text-[10px] text-[color:var(--navy)]/85 mb-1">ぼん</p>
+          <p class="font-mono-show text-[10px] text-[color:var(--navy)] mb-1">ぼん</p>
           <p class="text-[15px] md:text-[17px] leading-relaxed">で、解説がちゃんと載ってるから、間違えた時に置いてかれへん。</p>
         </div>
       </div>
@@ -844,7 +846,7 @@
       <div class="reveal flex items-end gap-3 md:gap-4 flex-row-reverse">
         <img src="./icons/moku-circle.png" alt="もく" class="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-[color:var(--pink)] bg-[color:var(--cream)] shrink-0">
         <div class="bubble moku max-w-[78%] md:max-w-[70%]">
-          <p class="font-mono-show text-[10px] text-[color:var(--navy)]/85 mb-1 text-right">もく</p>
+          <p class="font-mono-show text-[10px] text-[color:var(--navy)] mb-1 text-right">もく</p>
           <p class="text-[15px] md:text-[17px] leading-relaxed">リスナーで気になる人はプロフィールから飛んでみて。</p>
         </div>
       </div>
@@ -876,7 +878,7 @@
       <div class="md:col-span-8">
         <h2 class="font-serif-show text-[28px] md:text-[42px] leading-tight">お便り、待ってます。</h2>
         <p class="mt-2 font-handwrite text-[20px] md:text-[24px] text-[color:var(--pink)]">就活の本音、深夜2時のグチ、なんでも。</p>
-        <p class="mt-3 text-[14px] md:text-[15px] text-[color:var(--navy)]/85 leading-relaxed max-w-[640px]">
+        <p class="mt-3 text-[14px] md:text-[15px] text-[color:var(--navy)] leading-relaxed max-w-[640px]">
           番組内には「ぼんの相談」「もくの暴露」の2コーナー。プロフィールのDMから送ってもらえれば、次回以降の放送で読みます。
         </p>
         <p class="mt-3 text-[13px]">
@@ -926,30 +928,30 @@
     <!-- FAQ as postcards -->
     <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-5 md:gap-6">
       <div class="postcard">
-        <p class="font-mono-show text-[10px] tracking-[.18em] text-[color:var(--navy)]/85">📮 LETTER 01</p>
+        <p class="font-mono-show text-[10px] tracking-[.18em] text-[color:var(--navy)]">📮 LETTER 01</p>
         <p class="font-serif-show text-[16px] md:text-[19px] mt-1">Q. これ買えば受かりますか？</p>
-        <p class="text-[13px] md:text-[14px] text-[color:var(--navy)]/85 mt-2 leading-relaxed">
+        <p class="text-[13px] md:text-[14px] text-[color:var(--navy)] mt-2 leading-relaxed">
           A. いいえ。問題を地味にこなすためのアプリです。ただ「電車の5分で進める」のと「解説が毎問つく」ので、続けやすさは強み。
         </p>
       </div>
       <div class="postcard">
-        <p class="font-mono-show text-[10px] tracking-[.18em] text-[color:var(--navy)]/85">📮 LETTER 02</p>
+        <p class="font-mono-show text-[10px] tracking-[.18em] text-[color:var(--navy)]">📮 LETTER 02</p>
         <p class="font-serif-show text-[16px] md:text-[19px] mt-1">Q. どんな試験に対応？</p>
-        <p class="text-[13px] md:text-[14px] text-[color:var(--navy)]/85 mt-2 leading-relaxed">
+        <p class="text-[13px] md:text-[14px] text-[color:var(--navy)] mt-2 leading-relaxed">
           A. SPI（言語・非言語）と 玉手箱（四則逆算・表の空欄推測・図表の読み取り・趣旨判定）。それ以外は今のところ未収録です。
         </p>
       </div>
       <div class="postcard">
-        <p class="font-mono-show text-[10px] tracking-[.18em] text-[color:var(--navy)]/85">📮 LETTER 03</p>
+        <p class="font-mono-show text-[10px] tracking-[.18em] text-[color:var(--navy)]">📮 LETTER 03</p>
         <p class="font-serif-show text-[16px] md:text-[19px] mt-1">Q. ¥600って何の値段？</p>
-        <p class="text-[13px] md:text-[14px] text-[color:var(--navy)]/85 mt-2 leading-relaxed">
+        <p class="text-[13px] md:text-[14px] text-[color:var(--navy)] mt-2 leading-relaxed">
           A. アプリの買い切り価格（税込）です。月額じゃなく一括。ぼん&amp;もくが番組で使ってるやつをそのまま、リスナー価格で。購入後1年間アクセス可能です。
         </p>
       </div>
       <div class="postcard">
-        <p class="font-mono-show text-[10px] tracking-[.18em] text-[color:var(--navy)]/85">📮 LETTER 04</p>
+        <p class="font-mono-show text-[10px] tracking-[.18em] text-[color:var(--navy)]">📮 LETTER 04</p>
         <p class="font-serif-show text-[16px] md:text-[19px] mt-1">Q. ぼん&amp;もくに直接質問していい？</p>
-        <p class="text-[13px] md:text-[14px] text-[color:var(--navy)]/85 mt-2 leading-relaxed">
+        <p class="text-[13px] md:text-[14px] text-[color:var(--navy)] mt-2 leading-relaxed">
           A. はい、プロフィールのDMへ。次回放送で取り上げるかも。匿名希望は「匿名で」と一言添えてください。
         </p>
       </div>
